@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Urja Mistry | Finance Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAFA;
+  --card-bg: #FFFFFF;
+  --text: #1A1A1A;
+  --text-secondary: #555555;
+  --accent: #1F5C99;
+  --accent-light: #E8F0FE;
+  --border: #E5E7EB;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1117;
+    --card-bg: #1A1D27;
+    --text: #E8E8E8;
+    --text-secondary: #9CA3AF;
+    --accent: #4A9FE5;
+    --accent-light: #1A2A3A;
+    --border: #2D3140;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1117;
+  --card-bg: #1A1D27;
+  --text: #E8E8E8;
+  --text-secondary: #9CA3AF;
+  --accent: #4A9FE5;
+  --accent-light: #1A2A3A;
+  --border: #2D3140;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  max-width: 100%;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 24px 20px; }
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 48px 24px 36px;
+  background: linear-gradient(135deg, var(--accent) 0%, #2A7BC5 100%);
+  color: white;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+.header h1 { font-size: 2.2em; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+.header .tagline { font-size: 1em; font-weight: 300; opacity: 0.9; margin-bottom: 16px; }
+.contact-row {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
+  font-size: 0.85em; opacity: 0.9;
+}
+.contact-row a { color: white; text-decoration: none; }
+.contact-row a:hover { text-decoration: underline; }
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+.card h2 {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.card h3 {
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.card .subtitle {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.card p, .card li {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.card ul { list-style: none; padding: 0; }
+.card ul li { padding: 4px 0 4px 16px; position: relative; }
+.card ul li::before {
+  content: "\2022";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Experience items */
+.exp-item { margin-bottom: 20px; }
+.exp-item:last-child { margin-bottom: 0; }
+.exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+.exp-dates { font-size: 0.8em; color: var(--text-secondary); font-style: italic; white-space: nowrap; }
+
+/* Skills grid */
+.skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag {
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+/* Credentials grid */
+.cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 500px) { .cred-grid { grid-template-columns: 1fr; } }
+.cred-item {
+  background: var(--accent-light);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+}
+.cred-item .cred-title { font-size: 0.85em; font-weight: 600; color: var(--text); }
+.cred-item .cred-detail { font-size: 0.78em; color: var(--text-secondary); }
+
+/* Achievements */
+.achievement {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.achievement:last-child { border-bottom: none; }
+.achievement-icon {
+  width: 36px; height: 36px; min-width: 36px;
+  background: var(--accent-light);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1em;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.8em;
+  color: var(--text-secondary);
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Urja Mistry</h1>
+    <div class="tagline">FP&A | Credit & Investment Analysis | Fund Operations | Treasury | Financial Controls</div>
+    <div class="contact-row">
+      <span>Austin, TX / Boston, MA</span>
+      <span>+1 617-602-8554</span>
+      <a href="mailto:urjamistry94@outlook.com">urjamistry94@outlook.com</a>
+      <a href="https://linkedin.com/in/urjamistry94" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>About</h2>
+    <p>Finance professional with 5+ years of experience across FP&A, credit and investment analysis, fund operations, treasury, and financial controls. Chartered Accountant (India) with an MS in Finance from UMass Boston (GPA 3.90) and a track record of building financial models, processes, and controls infrastructure from scratch in complex, fast-moving environments. Currently pursuing US CPA (expected May 2027). CFA Research Challenge Boston Finalist (2025).</p>
+  </div>
+
+  <div class="card">
+    <h2>Credentials</h2>
+    <div class="cred-grid">
+      <div class="cred-item">
+        <div class="cred-title">Chartered Accountant (CA)</div>
+        <div class="cred-detail">ICAI, India | Dec 2021</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-title">MS Finance</div>
+        <div class="cred-detail">UMass Boston | GPA 3.90 | May 2026</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-title">US CPA (In Progress)</div>
+        <div class="cred-detail">AICPA | Expected May 2027</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-title">B.Com (Accounts & Finance)</div>
+        <div class="cred-detail">University of Mumbai | April 2015</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Experience</h2>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3>Teaching Assistant, Finance</h3>
+        <span class="exp-dates">Jan 2026 - May 2026</span>
+      </div>
+      <div class="subtitle">University of Massachusetts Boston</div>
+      <ul>
+        <li>Supported graduate instruction in financial modeling, valuation, quantitative methods, and SQL-based analytics</li>
+        <li>Coached students on portfolio risk frameworks, DCF modeling, and real-world financial analysis applications</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3>Credit Underwriting Analyst</h3>
+        <span class="exp-dates">Sep 2023 - Dec 2024</span>
+      </div>
+      <div class="subtitle">IIFL Finance Limited, Alternative Investment Division, India</div>
+      <ul>
+        <li>Built financial models (DCF, IRR, scenario analysis) supporting INR 500 Cr+ in capital allocation decisions</li>
+        <li>Owned SOX-equivalent internal controls, reconciliations, and audit documentation end to end</li>
+        <li>Prepared executive presentations and investment memoranda for investment committees</li>
+        <li>Ensured compliance with SEBI, FEMA, and RBI regulatory frameworks</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3>Business Analyst, Real Estate Lending Unit</h3>
+        <span class="exp-dates">Jul 2022 - Aug 2023</span>
+      </div>
+      <div class="subtitle">IIFL Finance Limited, Alternative Investment Division, India</div>
+      <ul>
+        <li>Monitored credit lines, borrowing base calculations, and covenant compliance for real estate investments</li>
+        <li>Managed capital calls, distributions, and investor communications for Alternative Investment Funds</li>
+        <li>Prepared portfolio performance analysis, KPI dashboards, and MIS reporting for investment committees</li>
+        <li>Managed daily cash monitoring and liquidity tracking across fund entities</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3>Senior Compliance Officer / Finance Associate</h3>
+        <span class="exp-dates">Aug 2021 - May 2022</span>
+      </div>
+      <div class="subtitle">Connect Professional Corporate Advisory Services, India</div>
+      <ul>
+        <li>Managed full-cycle accounting: GL, AP/AR, journal entries, reconciliations, and month-end close</li>
+        <li>Prepared IFRS and Ind AS financial statements and coordinated external audits</li>
+        <li>Led end-to-end SAP ERP implementations across multiple client engagements</li>
+        <li>Built integrated three-statement financial models in Excel</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3>Finance & Legal Consultant</h3>
+        <span class="exp-dates">Nov 2019 - Mar 2021</span>
+      </div>
+      <div class="subtitle">Mehta & Mehta Company Secretaries, India</div>
+      <ul>
+        <li>Managed regulatory filings with SEBI, FEMA, RBI, and ROC for corporate clients</li>
+        <li>Conducted financial statement analysis and supported secretarial audits</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3>Management Trainee (ICSI)</h3>
+        <span class="exp-dates">Jun 2018 - Sep 2019</span>
+      </div>
+      <div class="subtitle">JM Financial Group, India</div>
+      <ul>
+        <li>Supported regulatory filings for Asset Reconstruction and Credit business units</li>
+        <li>Gained exposure to structured finance and distressed debt resolution</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3>Article Assistant, Audit & Project Finance (ICAI)</h3>
+        <span class="exp-dates">Feb 2014 - Feb 2017</span>
+      </div>
+      <div class="subtitle">M/s Amit T Jain & Co., India</div>
+      <ul>
+        <li>Executed statutory and internal audits across real estate, NBFCs, and infrastructure</li>
+        <li>Prepared project finance proposals and CMA data for bank debt submissions</li>
+        <li>Represented clients before tax authorities in scrutiny cases</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Research & Projects</h2>
+
+    <div class="project-item" style="margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border);">
+      <h3>CFA Research Challenge Boston 2025 — Wayfair (NYSE: W)</h3>
+      <div class="subtitle">CFA Institute | Team representing UMass Boston | Boston Finalist</div>
+      <p style="margin:8px 0;">Produced a comprehensive sell-side equity research report on Wayfair as part of the CFA Institute Research Challenge. Conducted in-depth fundamental analysis including industry overview, management assessment, financial statement analysis, and competitive positioning. Built a blended valuation model (80% DCF, 20% comparable company analysis) and developed a clear investment thesis with bull/base/bear scenarios. Presented findings and defended assumptions before a panel of CFA charterholders in the Boston finals.</p>
+      <div class="skills-grid" style="margin-top:8px;">
+        <span class="skill-tag">DCF Valuation</span>
+        <span class="skill-tag">Comparable Company Analysis</span>
+        <span class="skill-tag">Scenario Modeling</span>
+        <span class="skill-tag">Investment Thesis</span>
+        <span class="skill-tag">Porter's Five Forces</span>
+        <span class="skill-tag">ESG Analysis</span>
+      </div>
+    </div>
+
+    <div class="project-item" style="margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border);">
+      <h3>Sell-Side Equity Report — Lockheed Martin (NYSE: LMT)</h3>
+      <div class="subtitle">MBA AF 632 Asset Management Practicum | UMass Boston | Fall 2025</div>
+      <p style="margin:8px 0;">Produced an independent institutional-grade equity research report on Lockheed Martin Corporation ($120B market cap). Analyzed the aerospace and defense industry structure, evaluated LMT's diversified portfolio across Aeronautics, Missiles & Fire Control, Rotary & Mission Systems, and Space Systems. Conducted DuPont analysis, assessed risk factors including program execution, government contract dependence, pension obligations, and FX exposure. Developed a BUY recommendation with a target price of $667 (32% upside from $504), supported by DCF valuation and Porter's Five Forces analysis.</p>
+      <div class="skills-grid" style="margin-top:8px;">
+        <span class="skill-tag">Equity Research</span>
+        <span class="skill-tag">DuPont Analysis</span>
+        <span class="skill-tag">Risk Analysis</span>
+        <span class="skill-tag">Defense Industry</span>
+        <span class="skill-tag">Porter's Five Forces</span>
+      </div>
+    </div>
+
+    <div class="project-item" style="margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border);">
+      <h3>Sell-Side Equity Report — Hexcel Corporation (NYSE: HXL)</h3>
+      <div class="subtitle">MBA AF 632 Asset Management Practicum | UMass Boston | Fall 2025</div>
+      <p style="margin:8px 0;">Produced a comprehensive sell-side equity research report on Hexcel Corporation ($5.8B market cap), a leading aerospace composites manufacturer. Analyzed the global aerospace composites market (projected to grow from $30-35B to $53-58B by 2030 at 12% CAGR). Developed a blended valuation (80% DCF EBITDA multiple method, 20% relative valuation) arriving at a BUY recommendation with a target price of $85 (17% upside from $72.54). Identified key investment thesis around high switching costs (5-7 year qualification cycles), capacity-driven operating leverage, and Airbus/Boeing backlog of 14,000+ aircraft.</p>
+      <div class="skills-grid" style="margin-top:8px;">
+        <span class="skill-tag">Equity Valuation</span>
+        <span class="skill-tag">EBITDA Multiple</span>
+        <span class="skill-tag">Relative Valuation</span>
+        <span class="skill-tag">Aerospace Industry</span>
+        <span class="skill-tag">ESG Analysis</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <h3>SAP ERP Implementation — Full Lifecycle</h3>
+      <div class="subtitle">Connect Professional Corporate Advisory Services | 2021-2022</div>
+      <p style="margin:8px 0;">Led multiple end-to-end SAP financial systems implementations for corporate clients. Conducted requirements gathering through stakeholder interviews, mapped AS-IS and TO-BE workflows, designed chart of accounts and cost center structures, configured financial modules, built reporting templates, conducted user acceptance testing, trained end users across departments, and provided post-implementation support. Reduced month-end close from three weeks to five business days, eliminated manual reconciliation errors, and established documented SOPs that ensured system sustainability after engagement completion.</p>
+      <div class="skills-grid" style="margin-top:8px;">
+        <span class="skill-tag">SAP ERP</span>
+        <span class="skill-tag">Process Redesign</span>
+        <span class="skill-tag">Change Management</span>
+        <span class="skill-tag">UAT</span>
+        <span class="skill-tag">User Training</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Key Achievements</h2>
+    <div class="achievement">
+      <div class="achievement-icon">&#127942;</div>
+      <div>
+        <h3>CFA Research Challenge Boston Finalist (2025)</h3>
+        <p>Produced institutional-grade equity valuation for Wayfair including DCF, comparable company analysis, and scenario modeling. Presented investment thesis to a panel of CFA charterholders.</p>
+      </div>
+    </div>
+    <div class="achievement">
+      <div class="achievement-icon">&#128200;</div>
+      <div>
+        <h3>Equity Research Reports</h3>
+        <p>Produced independent sell-side equity research on Lockheed Martin and Hexcel Corporation through the Asset Management Practicum at UMass Boston.</p>
+      </div>
+    </div>
+    <div class="achievement">
+      <div class="achievement-icon">&#9881;</div>
+      <div>
+        <h3>SAP ERP Implementation Lead</h3>
+        <p>Led multiple end-to-end SAP implementations at Connect Professional, reducing month-end close from three weeks to five business days.</p>
+      </div>
+    </div>
+    <div class="achievement">
+      <div class="achievement-icon">&#128737;</div>
+      <div>
+        <h3>SOX Controls Framework Builder</h3>
+        <p>Designed and maintained the internal controls framework for IIFL Finance's AIF Division, achieving zero material audit findings across multiple cycles.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <span class="skill-tag">Financial Modeling (DCF, IRR)</span>
+      <span class="skill-tag">Three-Statement Modeling</span>
+      <span class="skill-tag">FP&A</span>
+      <span class="skill-tag">Credit Analysis</span>
+      <span class="skill-tag">Fund Operations</span>
+      <span class="skill-tag">Treasury</span>
+      <span class="skill-tag">Internal Controls</span>
+      <span class="skill-tag">SAP ERP</span>
+      <span class="skill-tag">Advanced Excel</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">Power BI</span>
+      <span class="skill-tag">Tableau</span>
+      <span class="skill-tag">Bloomberg Terminal</span>
+      <span class="skill-tag">IFRS / US GAAP</span>
+      <span class="skill-tag">Variance Analysis</span>
+      <span class="skill-tag">AI Tools (Claude, Copilot)</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Education</h2>
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3>Master of Science in Finance</h3>
+        <span class="exp-dates">May 2026 | GPA: 3.90</span>
+      </div>
+      <div class="subtitle">University of Massachusetts Boston</div>
+      <p>Financial Modeling | Options Theory & Applications | Portfolio Analysis & Investment Management | Financial Engineering & Risk Management | Financial Statement Analysis | Computer & Information Systems | Global Portfolio Investment Management | Asset Management Practicum | Applied Econometric Analysis | Topics in Financial Reporting</p>
+    </div>
+    <div class="exp-item" style="margin-top:12px;">
+      <div class="exp-header">
+        <h3>Bachelor of Commerce (Accounts & Finance)</h3>
+        <span class="exp-dates">April 2015 | Grade: A</span>
+      </div>
+      <div class="subtitle">University of Mumbai</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Certifications</h2>
+    <div class="skills-grid">
+      <span class="skill-tag">Bloomberg Market Concepts</span>
+      <span class="skill-tag">SAP ERP Essential Training</span>
+      <span class="skill-tag">SQL for Data Analysis</span>
+      <span class="skill-tag">Power BI</span>
+      <span class="skill-tag">Tableau</span>
+      <span class="skill-tag">QuickBooks</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Urja Mistry | urjamistry94@outlook.com | +1 617-602-8554</p>
+    <p style="margin-top:4px;">Authorized to work in the US on F-1 STEM OPT</p>
+  </div>
+
+</div>
+</body>
+</html>
